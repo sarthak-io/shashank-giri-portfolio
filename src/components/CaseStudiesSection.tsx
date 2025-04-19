@@ -3,7 +3,10 @@ import { motion } from "framer-motion";
 
 const CaseStudiesSection = () => {
   return (
-    <div className="bg-background py-24 px-4 md:px-8 lg:px-16 relative">
+    <div
+      id="case-studies"
+      className="bg-background py-24 px-4 md:px-8 lg:px-16 relative"
+    >
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/3 right-0 w-96 h-96 rounded-full bg-primary/5 blur-3xl"></div>
         <div className="absolute bottom-0 left-1/4 w-64 h-64 rounded-full bg-primary/10 blur-3xl"></div>
@@ -60,21 +63,32 @@ const CaseStudiesSection = () => {
                     </span>
                   ))}
                 </div>
-                <button className="text-primary font-semibold hover:text-primary-foreground hover:bg-primary px-4 py-2 rounded-md transition-all duration-300 mt-auto inline-flex items-center justify-center border border-primary/30 group-hover:border-primary">
-                  View Case Study
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 ml-2"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
+                <a
+                  href={study.caseStudyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-auto"
+                >
+                  <motion.button
+                    className="text-primary font-semibold hover:text-primary-foreground hover:bg-primary px-4 py-2 rounded-md transition-all duration-300 inline-flex items-center justify-center border border-primary/30 group-hover:border-primary w-full"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    <path
-                      fillRule="evenodd"
-                      d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </button>
+                    View Case Study
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 ml-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </motion.button>
+                </a>
               </div>
             </motion.div>
           ))}
@@ -87,32 +101,31 @@ const CaseStudiesSection = () => {
 const caseStudies = [
   {
     company: "Asian Paints",
-    logoUrl:
-      "https://images.unsplash.com/photo-1563089145-599997674d42?w=200&q=80",
+    logoUrl: "/logos/asian-paints-logo.png",
     description:
       "Led extensive rebranding campaign and implemented AMP to optimize lead generation, increasing monthly appointments from 200 to 1,000. Managed a ₹2 crore monthly digital budget with rigorous A/B testing.",
     metrics: ["5-6x ROAS", "5x Digital Inquiries", "MarTech Award"],
+    caseStudyUrl: "/case-studies/asian-paints.pdf",
   },
   {
     company: "Nykaa",
-    logoUrl:
-      "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=200&q=80",
+    logoUrl: "/logos/nykaa-logo.png",
     description:
       "Managed ₹1.3 crore monthly paid media budgets across Google, Meta, and programmatic channels. Leveraged CRM segmentation and predictive modeling to improve retention across a 1.5 crore user base.",
     metrics: ["4.5-5x ROAS", "Improved Retention", "1.5 Crore User Base"],
+    caseStudyUrl: "/case-studies/nykaa.pdf",
   },
   {
     company: "KGK Diamonds",
-    logoUrl:
-      "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=200&q=80",
+    logoUrl: "/logos/kgk-logo.png",
     description:
       "Built digital presence from scratch, launching impactful omni-channel campaigns using Klaviyo and HubSpot. Achieved a 4x increase in organic traffic through optimized Google and Facebook campaigns.",
     metrics: ["6-7x ROAS", "4x Organic Traffic", "Omni-channel Strategy"],
+    caseStudyUrl: "/case-studies/kgk-diamonds.pdf",
   },
   {
     company: "Alippo",
-    logoUrl:
-      "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?w=200&q=80",
+    logoUrl: "/logos/alippo-logo.png",
     description:
       "Reduced Customer Acquisition Cost (CAC) by 38% through innovative digital marketing strategies. Increased customer retention from 20% to 28%, driving significant brand growth.",
     metrics: [
@@ -120,14 +133,15 @@ const caseStudies = [
       "8% Retention Increase",
       "Targeted Digital Initiatives",
     ],
+    caseStudyUrl: "/case-studies/alippo.pdf",
   },
   {
     company: "ConsultAdd",
-    logoUrl:
-      "https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=200&q=80",
+    logoUrl: "/logos/consultadd-logo.png",
     description:
       "Revitalized YouTube presence, resulting in impressions growth of 5.2x, views growth of 4.9x, and subscribers by 2.6x. Implemented successful organic growth strategies and AI-driven content automation.",
     metrics: ["5.2x Impressions", "4.9x Views", "2.6x Subscribers"],
+    caseStudyUrl: "/case-studies/consultadd.pdf",
   },
 ];
 

@@ -51,7 +51,10 @@ const GrowthCalculator = () => {
   };
 
   return (
-    <div className="bg-background py-24 px-4 md:px-8 lg:px-16 relative">
+    <div
+      id="calculator"
+      className="bg-background py-24 px-4 md:px-8 lg:px-16 relative"
+    >
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/2 left-1/4 w-96 h-96 rounded-full bg-primary/5 blur-3xl"></div>
         <div className="absolute bottom-1/4 right-1/3 w-64 h-64 rounded-full bg-primary/10 blur-3xl"></div>
@@ -138,12 +141,18 @@ const GrowthCalculator = () => {
                 />
               </div>
 
-              <button
+              <motion.button
                 onClick={calculateGrowth}
-                className="w-full bg-primary hover:bg-primary/80 text-primary-foreground font-bold py-4 rounded-md text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_15px_rgba(139,92,246,0.5)]"
+                className="w-full bg-primary hover:bg-primary/80 text-primary-foreground font-bold py-4 rounded-md text-lg transition-all duration-300 hover:shadow-[0_0_15px_rgba(139,92,246,0.5)]"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
               >
                 Calculate Potential Growth
-              </button>
+              </motion.button>
             </div>
           </motion.div>
 
@@ -271,9 +280,20 @@ const GrowthCalculator = () => {
                   </p>
                 </div>
 
-                <button className="w-full bg-primary/20 hover:bg-primary text-primary hover:text-primary-foreground font-bold py-3 rounded-md transition-all duration-300 border border-primary/30">
-                  Schedule a Consultation
-                </button>
+                <motion.a
+                  href="https://calendly.com/shivamkapillll/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full"
+                >
+                  <motion.button
+                    className="w-full bg-primary/20 hover:bg-primary text-primary hover:text-primary-foreground font-bold py-3 rounded-md transition-all duration-300 border border-primary/30"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Schedule a Consultation
+                  </motion.button>
+                </motion.a>
               </div>
             ) : (
               <div className="h-full flex flex-col items-center justify-center py-12">

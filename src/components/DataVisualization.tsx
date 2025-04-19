@@ -3,7 +3,10 @@ import { motion } from "framer-motion";
 
 const DataVisualization = () => {
   return (
-    <div className="bg-background py-24 px-4 md:px-8 lg:px-16 relative">
+    <div
+      id="data-insights"
+      className="bg-background py-24 px-4 md:px-8 lg:px-16 relative"
+    >
       <div className="absolute inset-0 z-0">
         <div className="absolute bottom-1/3 left-0 w-96 h-96 rounded-full bg-primary/5 blur-3xl"></div>
         <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-primary/10 blur-3xl"></div>
@@ -68,24 +71,151 @@ const DataVisualization = () => {
             className="bg-secondary/50 backdrop-blur-sm p-8 rounded-xl border border-primary/10 hover:border-primary/30 transition-all duration-300"
           >
             <h3 className="text-2xl font-bold text-foreground mb-6">
-              Growth Over Time
+              Multi-Axis Impact Analysis
             </h3>
-            <div className="h-64 flex items-end justify-between space-x-2">
-              {growthData.map((item, index) => (
-                <div key={index} className="flex flex-col items-center flex-1">
-                  <motion.div
-                    initial={{ height: 0 }}
-                    whileInView={{ height: `${item.percentage}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 0.1 * index }}
-                    className="w-full bg-primary/70 hover:bg-primary transition-colors duration-300 rounded-t-sm"
-                    style={{ maxWidth: "30px" }}
-                  ></motion.div>
-                  <span className="text-xs text-muted-foreground mt-2">
-                    {item.label}
-                  </span>
+            <div className="relative h-80 w-full">
+              {/* Radar Chart Background */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-full h-full max-w-md max-h-md">
+                  {/* Radar Background Circles */}
+                  {[1, 2, 3, 4, 5].map((level) => (
+                    <motion.div
+                      key={level}
+                      className="absolute top-1/2 left-1/2 rounded-full border border-primary/20"
+                      style={{
+                        width: `${level * 20}%`,
+                        height: `${level * 20}%`,
+                        transform: "translate(-50%, -50%)",
+                      }}
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: level * 0.15, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.1 * level }}
+                    />
+                  ))}
+
+                  {/* Radar Axes */}
+                  {skillAxes.map((axis, index) => {
+                    const angle =
+                      index * (360 / skillAxes.length) * (Math.PI / 180);
+                    const endX = 50 + 45 * Math.cos(angle);
+                    const endY = 50 + 45 * Math.sin(angle);
+
+                    return (
+                      <React.Fragment key={index}>
+                        <motion.div
+                          className="absolute top-1/2 left-1/2 w-[1px] bg-primary/30"
+                          style={{
+                            height: "45%",
+                            transformOrigin: "bottom center",
+                            transform: `translate(-50%, -100%) rotate(${index * (360 / skillAxes.length)}deg)`,
+                          }}
+                          initial={{ opacity: 0, height: "0%" }}
+                          whileInView={{ opacity: 1, height: "45%" }}
+                          viewport={{ once: true }}
+                          transition={{
+                            duration: 0.6,
+                            delay: 0.3 + 0.1 * index,
+                          }}
+                        />
+                        <motion.div
+                          className="absolute text-xs text-primary font-medium bg-background/80 px-2 py-1 rounded-md"
+                          style={{
+                            top: `${endY}%`,
+                            left: `${endX}%`,
+                            transform: "translate(-50%, -50%)",
+                          }}
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          viewport={{ once: true }}
+                          transition={{
+                            duration: 0.6,
+                            delay: 0.6 + 0.1 * index,
+                          }}
+                        >
+                          {axis}
+                        </motion.div>
+                      </React.Fragment>
+                    );
+                  })}
+
+                  {/* Project Data Points */}
+                  {projectDataPoints.map((project, index) => {
+                    // Calculate position based on project values
+                    const points = skillAxes.map((skill, skillIndex) => {
+                      const angle =
+                        skillIndex * (360 / skillAxes.length) * (Math.PI / 180);
+                      const value = project.skills[skillIndex] / 10; // Normalize to 0-1
+                      const distance = value * 45; // 45% is max distance
+
+                      return {
+                        x: 50 + distance * Math.cos(angle),
+                        y: 50 + distance * Math.sin(angle),
+                      };
+                    });
+
+                    // Create SVG path for the shape
+                    const pathD =
+                      points
+                        .map(
+                          (point, i) =>
+                            `${i === 0 ? "M" : "L"}${point.x},${point.y}`,
+                        )
+                        .join(" ") + "Z";
+
+                    return (
+                      <motion.div key={index} className="absolute inset-0">
+                        <svg
+                          width="100%"
+                          height="100%"
+                          viewBox="0 0 100 100"
+                          className="overflow-visible"
+                        >
+                          <motion.path
+                            d={pathD}
+                            fill={`rgba(139, 92, 246, ${0.2 + index * 0.1})`}
+                            stroke="rgba(139, 92, 246, 0.8)"
+                            strokeWidth="1"
+                            initial={{ opacity: 0, scale: 0 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{
+                              duration: 0.8,
+                              delay: 0.8 + 0.2 * index,
+                            }}
+                          />
+                        </svg>
+
+                        {/* Center point with label */}
+                        <motion.div
+                          className="absolute bg-primary text-primary-foreground text-xs px-2 py-1 rounded-full"
+                          style={{
+                            top: "50%",
+                            left: "50%",
+                            transform: "translate(-50%, -50%)",
+                          }}
+                          initial={{ opacity: 0, scale: 0 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{
+                            duration: 0.5,
+                            delay: 1.2 + 0.2 * index,
+                          }}
+                          whileHover={{ scale: 1.2 }}
+                        >
+                          {project.name}
+                        </motion.div>
+                      </motion.div>
+                    );
+                  })}
                 </div>
-              ))}
+              </div>
+            </div>
+            <div className="mt-4 text-center text-sm text-muted-foreground">
+              <p>
+                Visualizing our strategic range and skill application depth
+                across projects
+              </p>
             </div>
           </motion.div>
 
@@ -132,13 +262,35 @@ const performanceMetrics = [
   { name: "Conversion Rate", value: "12.3%", percentage: 82 },
 ];
 
-const growthData = [
-  { label: "Q1", percentage: 30 },
-  { label: "Q2", percentage: 45 },
-  { label: "Q3", percentage: 60 },
-  { label: "Q4", percentage: 75 },
-  { label: "Q1", percentage: 85 },
-  { label: "Q2", percentage: 95 },
+const skillAxes = [
+  "Branding",
+  "Performance Marketing",
+  "Automation",
+  "Retention",
+  "AI Integration",
+];
+
+const projectDataPoints = [
+  {
+    name: "Asian Paints",
+    skills: [9, 10, 7, 6, 8], // Values from 1-10 for each skill axis
+  },
+  {
+    name: "Nykaa",
+    skills: [7, 9, 9, 10, 8],
+  },
+  {
+    name: "KGK",
+    skills: [10, 8, 9, 7, 6],
+  },
+  {
+    name: "Alippo",
+    skills: [6, 8, 7, 10, 9],
+  },
+  {
+    name: "ConsultAdd",
+    skills: [7, 6, 8, 7, 10],
+  },
 ];
 
 const kpiData = [

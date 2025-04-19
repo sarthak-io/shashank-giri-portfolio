@@ -33,23 +33,49 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
             <span className="text-2xl font-bold text-primary">
-              Shashank Giri
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                AI Marketing Duo
+              </motion.span>
             </span>
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-8">
               {navItems.map((item) => (
-                <a
+                <motion.a
                   key={item.name}
                   href={item.href}
                   className="text-muted-foreground hover:text-primary px-3 py-2 text-sm font-medium transition-colors duration-300"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.3,
+                    delay: 0.1 * navItems.indexOf(item),
+                  }}
                 >
                   {item.name}
-                </a>
+                </motion.a>
               ))}
-              <button className="bg-primary/10 hover:bg-primary text-primary hover:text-primary-foreground px-5 py-2 rounded-md text-sm font-medium transition-all duration-300 border border-primary/30">
-                Contact Me
-              </button>
+              <motion.a
+                href="https://calendly.com/shivamkapillll/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.5 }}
+              >
+                <button className="bg-primary/10 hover:bg-primary text-primary hover:text-primary-foreground px-5 py-2 rounded-md text-sm font-medium transition-all duration-300 border border-primary/30">
+                  Contact Me
+                </button>
+              </motion.a>
             </div>
           </div>
           <div className="md:hidden">
@@ -77,7 +103,7 @@ const Navbar = () => {
 };
 
 const navItems = [
-  { name: "Home", href: "#" },
+  { name: "Home", href: "#home" },
   { name: "Services", href: "#services" },
   { name: "Case Studies", href: "#case-studies" },
   { name: "Data Insights", href: "#data-insights" },
