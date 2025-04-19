@@ -101,31 +101,33 @@ const CaseStudiesSection = () => {
 const caseStudies = [
   {
     company: "Asian Paints",
-    logoUrl: "/logos/asian-paints-logo.png",
+    logoUrl:
+      "https://upload.wikimedia.org/wikipedia/commons/8/8c/Asian_Paints_Logo.svg",
     description:
       "Led extensive rebranding campaign and implemented AMP to optimize lead generation, increasing monthly appointments from 200 to 1,000. Managed a ₹2 crore monthly digital budget with rigorous A/B testing.",
     metrics: ["5-6x ROAS", "5x Digital Inquiries", "MarTech Award"],
-    caseStudyUrl: "/case-studies/asian-paints.pdf",
+    caseStudyUrl: "/case-studies/asian-paints.html",
   },
   {
     company: "Nykaa",
-    logoUrl: "/logos/nykaa-logo.png",
+    logoUrl:
+      "https://upload.wikimedia.org/wikipedia/commons/9/9c/Nykaa_Logo.png",
     description:
       "Managed ₹1.3 crore monthly paid media budgets across Google, Meta, and programmatic channels. Leveraged CRM segmentation and predictive modeling to improve retention across a 1.5 crore user base.",
     metrics: ["4.5-5x ROAS", "Improved Retention", "1.5 Crore User Base"],
-    caseStudyUrl: "/case-studies/nykaa.pdf",
+    caseStudyUrl: "/case-studies/nykaa.html",
   },
   {
     company: "KGK Diamonds",
-    logoUrl: "/logos/kgk-logo.png",
+    logoUrl: "https://www.kgkgroup.com/wp-content/uploads/2019/06/logo.png",
     description:
       "Built digital presence from scratch, launching impactful omni-channel campaigns using Klaviyo and HubSpot. Achieved a 4x increase in organic traffic through optimized Google and Facebook campaigns.",
     metrics: ["6-7x ROAS", "4x Organic Traffic", "Omni-channel Strategy"],
-    caseStudyUrl: "/case-studies/kgk-diamonds.pdf",
+    caseStudyUrl: "/case-studies/kgk-diamonds.html",
   },
   {
     company: "Alippo",
-    logoUrl: "/logos/alippo-logo.png",
+    logoUrl: "https://alippo.com/wp-content/uploads/2023/03/alippo-logo.svg",
     description:
       "Reduced Customer Acquisition Cost (CAC) by 38% through innovative digital marketing strategies. Increased customer retention from 20% to 28%, driving significant brand growth.",
     metrics: [
@@ -133,15 +135,16 @@ const caseStudies = [
       "8% Retention Increase",
       "Targeted Digital Initiatives",
     ],
-    caseStudyUrl: "/case-studies/alippo.pdf",
+    caseStudyUrl: "/case-studies/alippo.html",
   },
   {
     company: "ConsultAdd",
-    logoUrl: "/logos/consultadd-logo.png",
+    logoUrl:
+      "https://consultadd.com/wp-content/uploads/2022/12/consultadd-logo.svg",
     description:
       "Revitalized YouTube presence, resulting in impressions growth of 5.2x, views growth of 4.9x, and subscribers by 2.6x. Implemented successful organic growth strategies and AI-driven content automation.",
     metrics: ["5.2x Impressions", "4.9x Views", "2.6x Subscribers"],
-    caseStudyUrl: "/case-studies/consultadd.pdf",
+    caseStudyUrl: "/case-studies/consultadd.html",
   },
 ];
 
