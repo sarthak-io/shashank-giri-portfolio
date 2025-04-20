@@ -39,11 +39,11 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               className="flex items-center"
             >
-              <img
-                src="/public/signal-theory-final.png"
+              {/*<img
+                src="/public/Final Logo Signal Theory.png"
                 alt="Signal Theory Logo"
                 className="h-12 mr-2"
-              />
+              />*/}
               <span className="text-2xl font-bold text-primary">
                 Signal Theory
               </span>
