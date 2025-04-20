@@ -69,10 +69,10 @@ const GrowthCalculator = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 tracking-tight">
-            Coffee Brand <span className="text-primary">Growth Calculator</span>
+            <span className="text-primary">Growth Calculator</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Estimate your potential growth based on my proven marketing
+            Estimate your potential growth based on our proven marketing
             strategies
           </p>
         </motion.div>
@@ -315,8 +315,8 @@ const GrowthCalculator = () => {
                 </div>
                 <p className="text-muted-foreground text-center max-w-md">
                   Enter your current business metrics and click "Calculate
-                  Potential Growth" to see how my marketing strategies could
-                  impact your coffee brand.
+                  Potential Growth" to see how our marketing strategies could
+                  impact your business.
                 </p>
               </div>
             )}

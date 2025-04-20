@@ -63,33 +63,6 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h3 className="text-2xl font-bold text-foreground mb-6">
-              Connect With Us
-            </h3>
-            <div className="flex space-x-4 mb-8">
-              <motion.a
-                href="#"
-                whileHover={{ y: -5, scale: 1.1 }}
-                className="bg-primary/10 p-3 rounded-full text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
-              >
-                <Linkedin className="h-5 w-5" />
-              </motion.a>
-              <motion.a
-                href="#"
-                whileHover={{ y: -5, scale: 1.1 }}
-                className="bg-primary/10 p-3 rounded-full text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
-              >
-                <Twitter className="h-5 w-5" />
-              </motion.a>
-              <motion.a
-                href="#"
-                whileHover={{ y: -5, scale: 1.1 }}
-                className="bg-primary/10 p-3 rounded-full text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
-              >
-                <Instagram className="h-5 w-5" />
-              </motion.a>
-            </div>
-
             <motion.a
               href="https://calendly.com/shivamkapillll/30min"
               target="_blank"
@@ -110,7 +83,7 @@ const Footer = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <p>
-            © {new Date().getFullYear()} AI Marketing Duo. All rights reserved.
+            © {new Date().getFullYear()} Signal Theory. All rights reserved.
           </p>
         </motion.div>
       </div>

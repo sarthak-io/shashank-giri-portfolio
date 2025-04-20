@@ -25,7 +25,7 @@ const CaseStudiesSection = () => {
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Proven results across diverse brands, with strategies ready to adapt
-            for your coffee business
+            for your business
           </p>
         </motion.div>
 
@@ -40,13 +40,6 @@ const CaseStudiesSection = () => {
               className="bg-secondary/50 backdrop-blur-sm rounded-xl overflow-hidden border border-primary/10 hover:border-primary/30 transition-all duration-300 group"
             >
               <div className="p-8 h-full flex flex-col">
-                <div className="mb-6 flex justify-center items-center h-20">
-                  <img
-                    src={study.logoUrl}
-                    alt={`${study.company} logo`}
-                    className="h-16 object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                  />
-                </div>
                 <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
                   {study.company}
                 </h3>

@@ -51,24 +51,24 @@ const HeroSection = () => {
         className="text-center max-w-4xl mx-auto z-10"
       >
         <motion.h1
-          className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-foreground mb-6 tracking-tight"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 tracking-tight"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           whileHover={{ scale: 1.02 }}
         >
-          <span className="text-primary">AI-Driven</span> Marketing Duo for
-          <span className="block mt-2">Scalable, Performance-Led Growth</span>
+          <span className="text-foreground">Growth Engineered With </span>
+          <span className="text-primary">AI</span>
         </motion.h1>
         <motion.p
-          className="text-xl md:text-2xl text-muted-foreground mb-12"
+          className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           whileHover={{ scale: 1.05 }}
         >
           We help brands unlock measurable impact through intelligent marketing
-          strategies, automation, and creative precision—across industries and
+          strategies, automation, and creative precision across industries and
           platforms.
         </motion.p>
       </motion.div>

@@ -32,16 +32,22 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
-            <span className="text-2xl font-bold text-primary">
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                AI Marketing Duo
-              </motion.span>
-            </span>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center"
+            >
+              <img
+                src="/public/Final Logo Signal Theory.png"
+                alt="Signal Theory Logo"
+                className="h-12 mr-2"
+              />
+              <span className="text-2xl font-bold text-primary">
+                Signal Theory
+              </span>
+            </motion.div>
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-8">
@@ -73,7 +79,7 @@ const Navbar = () => {
                 transition={{ duration: 0.3, delay: 0.5 }}
               >
                 <button className="bg-primary/10 hover:bg-primary text-primary hover:text-primary-foreground px-5 py-2 rounded-md text-sm font-medium transition-all duration-300 border border-primary/30">
-                  Contact Me
+                  Contact Us
                 </button>
               </motion.a>
             </div>
