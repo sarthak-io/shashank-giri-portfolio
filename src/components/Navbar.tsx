@@ -40,7 +40,7 @@ const Navbar = () => {
               className="flex items-center"
             >
               <img
-                src="./public/signal-theory-final.png"
+                src="/public/signal-theory-final.png"
                 alt="Signal Theory Logo"
                 className="h-12 mr-2"
               />
